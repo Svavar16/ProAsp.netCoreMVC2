@@ -6,7 +6,11 @@ using Microsoft.AspNetCore.Mvc;
 namespace LanguageFeature.Controllers {
     public class HomeController : Controller {
         public ViewResult Index(){
-            return View("Index", new string[] { "Bob", "Joe", "Alice"});
+            Dictionary<string, Product> products = new Dictionary<string, Product> {
+                { "Kayak", new Product{Name = "Kayak", Price = 275M}},
+                { "Lifejacket" , new Product{ Name = "Lifejacket", Price = 48.95M}}
+            };
+            return View("Index", products.Keys);
         }
     }
 }
